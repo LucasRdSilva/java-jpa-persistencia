@@ -40,7 +40,7 @@ public class PedidoDao {
 	}
 
 	public Pedido buscaPedidoComCliente(Long id) {
-		return em.createQuery("SELECT p FROM Pedido p JOIN FETCH p.Cliente WHERE p.id - :id", Pedido.class) //Join Fetch - Carrega um relacionamento LAZY somente na consulta
+		return em.createQuery("SELECT p FROM Pedido p JOIN FETCH p.cliente WHERE p.id = :id", Pedido.class) //Join Fetch - Carrega um relacionamento LAZY somente na consulta
 				.setParameter("id", id)
 				.getSingleResult();
 	}

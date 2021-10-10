@@ -16,7 +16,7 @@ public class PerformanceConsultas {
         popularBancoDeDados();
         EntityManager em = JPAUtil.getEntityManager();
         PedidoDao pedidoDao = new PedidoDao(em);
-        Pedido pedido = pedidoDao.buscaPedidoComCliente(1l);
+        Pedido pedido = pedidoDao.buscaPedidoComCliente(1L);
         em.close();
         System.out.println(pedido.getCliente().getNome());
     }
@@ -30,13 +30,11 @@ public class PerformanceConsultas {
         Produto videogame = new Produto("PS5", "Playstation 5", new BigDecimal("8000"), videogames);
         Produto macbook = new Produto("Macbook", "Macboo pro retina", new BigDecimal("14000"), informatica);
 
-
-
         Cliente cliente = new Cliente("Rodrigo", "123456");
 
         Pedido pedido = new Pedido(cliente);
         pedido.adicionarItem(new ItemPedido(10, pedido, celular));
-        pedido.adicionarItem(new ItemPedido(40 ,pedido, videogame));
+        pedido.adicionarItem(new ItemPedido(40, pedido, videogame));
 
         Pedido pedido2 = new Pedido(cliente);
         pedido2.adicionarItem(new ItemPedido(2, pedido, macbook));
