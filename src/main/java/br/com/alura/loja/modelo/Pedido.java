@@ -24,12 +24,8 @@ public class Pedido {
     @OneToMany(mappedBy = "pedido", cascade = CascadeType.ALL)
     private List<ItemPedido> itens = new ArrayList<>();
 
-    public List<ItemPedido> getItens() {
-        return itens;
-    }
+    public Pedido() {
 
-    public void setItens(List<ItemPedido> itens) {
-        this.itens = itens;
     }
 
     public Pedido(Cliente cliente) {
@@ -42,12 +38,16 @@ public class Pedido {
         this.valorTotal = this.valorTotal.add(item.getValor());
     }
 
-    public Long getId() {
-        return id;
+    public List<ItemPedido> getItens() {
+        return itens;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setItens(List<ItemPedido> itens) {
+        this.itens = itens;
+    }
+
+    public Long getId() {
+        return id;
     }
 
     public BigDecimal getValorTotal() {
@@ -73,4 +73,5 @@ public class Pedido {
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
     }
+
 }

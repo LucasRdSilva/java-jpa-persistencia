@@ -10,6 +10,7 @@ public class ItemPedido {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @Column(name="preco_unitario")
     private BigDecimal precoUnitario;
     private int quantidade;
@@ -29,10 +30,6 @@ public class ItemPedido {
 
     public Long getId() {
         return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public BigDecimal getPrecoUnitario() {

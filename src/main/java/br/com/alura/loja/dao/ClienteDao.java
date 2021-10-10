@@ -19,10 +19,6 @@ public class ClienteDao {
 		this.em.persist(cliente);
 	}
 
-	public Cliente buscarPorId(Long id) {
-		return em.find(Cliente.class, id);
-	}
-
 	public void atualizar(Cliente cliente) {
 		this.em.merge(cliente);
 	}
@@ -31,5 +27,15 @@ public class ClienteDao {
 		cliente = em.merge(cliente);
 		this.em.remove(cliente);
 	}
+
+	public Cliente buscarPorId(Long id) {
+		return em.find(Cliente.class, id);
+	}
+
+	public List<Cliente> buscarTodos() {
+		String jpql = "SELECT c from Cliente c";
+		return em.createQuery(jpql, Cliente.class).getResultList();
+	}
+
 
 }
